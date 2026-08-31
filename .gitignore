@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.episerverdata
+# --- ritus (managed) ---
+/.ritus/.env.local
+/.ritus/attachments/
+/.ritus/.env.example
