@@ -1,8 +1,12 @@
 {
   "name": "cms-test-data-mcp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MCP server that turns a content plan into an importable Optimizely CMS 12 .episerverdata package. An independent community project, not affiliated with or endorsed by Optimizely.",
   "license": "MIT",
+  "type": "module",
+  "bin": {
+    "cms-test-data-mcp": "dist/mcp/server.js"
+  },
   "files": [
     "dist"
   ],
@@ -18,11 +22,22 @@
     "test-data",
     "qa"
   ],
-    "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/precise-alloy/cms-test-data-mcp.git"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build": "bun build src/mcp/server.ts --target=node --packages=external --outdir dist/mcp --banner \"#!/usr/bin/env node\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "adm-zip": "^0.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
+    "typescript": "^5"
   }
 }
